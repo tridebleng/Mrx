@@ -15,11 +15,11 @@ off='\x1b[m'
 
 clear
 apt install jq curl -y
-DOMAIN=autosc.me
-sub=$(</dev/urandom tr -dc a-z0-9 | head -c2)
-SUB_DOMAIN=${sub}.autosc.me
-CF_ID=awaledyan@gmail.com
-CF_KEY=9bac6a7ab5cf4328cfd693435d2c145dc9f76
+DOMAIN=artavpnpremi.my.id
+sub=$(</dev/urandom tr -dc a-z0-9 | head -c6)
+SUB_DOMAIN=${sub}.artavpnpremi.my.id
+CF_ID=cobap413@gmail.com
+CF_KEY=c1ee95f60ee7b9b7c40b2bc771960bfe21ac3
 set -euo pipefail
 IP=$(wget -qO- ipinfo.io/ip);
 echo "Updating DNS for ${SUB_DOMAIN}..."
