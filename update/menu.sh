@@ -26,7 +26,7 @@ up=$(uptime|awk '{ $1=$2=$(NF-6)=$(NF-5)=$(NF-4)=$(NF-3)=$(NF-2)=$(NF-1)=$NF="";
 tram=$( free -m | awk 'NR==2 {print $2}' )
 echo -e ""
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
-echo -e "\E[44;1;39m                     ⇱ INFORMASI VPS ⇲                        \E[0m"
+echo -e "\E[31;1;39m                     ⇱ INFORMASI VPS ⇲                        \E[0m"
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
 echo -e " ❇️$bd ISP Name          ${color1} •${color3}$bd $ISP"
 echo -e " ❇️$bd City              ${color1} •${color3}$bd $CITY"
@@ -37,7 +37,7 @@ echo -e " ❇️$bd Waktu Aktif       ${color1} •${color3}$bd $up"
 echo -e " ❇️$bd Client Name       ${color1} •${color3}$bd ARTA VPN"
 echo -e " ❇️$bd Expiry script     ${color1} •${color3}$bd LIFETIME"
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
-echo -e "\E[44;1;39m                     ⇱ MENU  OPTIONS ⇲                        \E[0m"
+echo -e "\E[31;1;39m                     ⇱ MENU  OPTIONS ⇲                        \E[0m"
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
 echo -e "
 [${green}01${NC}]${color1} •${color3}$bd Panel SSH & OpenVPN (${color2}menu-ssh${color3})
@@ -47,15 +47,15 @@ echo -e "
 [${green}05${NC}]${color1} •${color3}$bd Panel SSR & SS Acount (${color2}menu-ssr-ss${color3})
 [${green}06${NC}]${color1} •${color3}$bd Panel Trojan (${color2}menu-trojan${color3})
 [${green}07${NC}]${color1} •${color3}$bd Change Port All Acount (${color2}menu-port${color3})
-[${green}8${NC}]${color1} •${color3}$bd cek status layanan (${color2}running${color3})
-[${green}9${NC}]${color1} •${color3}$bd Menu Tools (${color2}tools${color3})
+[${green}08${NC}]${color1} •${color3}$bd cek status layanan (${color2}running${color3})
+[${green}09${NC}]${color1} •${color3}$bd Menu Tools (${color2}tools${color3})
 [${green}10${NC}]${color1} •${color3}$bd webmin menu (${color2}webmin${color3})
 [${green}11${NC}]${color1} •${color3}$bd info script auto install (${color2}info${color3})
 
 [${green}00${NC}]${color1} •${color3}$bd Back to exit Menu \033[1;32m<\033[1;33m<\033[1;31m<\033[1;31m"
 echo ""
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
-echo -e "\E[44;1;39m                     ⇱ MDX OFFICIAL ⇲                       \E[0m"
+echo -e "\E[31;1;39m                     ⇱ MDX OFFICIAL ⇲                       \E[0m"
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
 echo -e  ""
  read -p "  Select menu :  " menu
