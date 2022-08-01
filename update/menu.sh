@@ -47,15 +47,15 @@ echo -e "
 [${green}05${NC}]${color1} •${color3}$bd Panel SSR & SS Acount (${color2}menu-ssr-ss${color3})
 [${green}06${NC}]${color1} •${color3}$bd Panel Trojan (${color2}menu-trojan${color3})
 [${green}07${NC}]${color1} •${color3}$bd Change Port All Acount (${color2}menu-port${color3})
-[${green}8${NC}]${color1} •${color3}$bd cek status layanan (${color2}running${color3})
-[${green}9${NC}]${color1} •${color3}$bd Menu Tools (${color2}tools${color3})
+[${green}08${NC}]${color1} •${color3}$bd cek status layanan (${color2}running${color3})
+[${green}09${NC}]${color1} •${color3}$bd Menu Tools (${color2}tools${color3})
 [${green}10${NC}]${color1} •${color3}$bd webmin menu (${color2}webmin${color3})
 [${green}11${NC}]${color1} •${color3}$bd info script auto install (${color2}info${color3})
 
 [${green}00${NC}]${color1} •${color3}$bd Back to exit Menu \033[1;32m<\033[1;33m<\033[1;31m<\033[1;31m"
 echo ""
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
-echo -e "\E[44;1;39m                     ⇱ MDX OFFICIAL ⇲                       \E[0m"
+echo -e "\E[44;1;39m                     ⇱ ARTA PREMI OFFICIAL ⇲                       \E[0m"
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
 echo -e  ""
  read -p "  Select menu :  " menu
