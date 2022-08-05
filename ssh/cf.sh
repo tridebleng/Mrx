@@ -15,9 +15,9 @@ off='\x1b[m'
 
 clear
 apt install jq curl -y
-DOMAIN=artavpnpremi.my.id
+DOMAIN=kazekage.my.id
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c6)
-SUB_DOMAIN=${sub}.artavpnpremi.my.id
+SUB_DOMAIN=${sub}.kazekage.my.id
 CF_ID=cobap413@gmail.com
 CF_KEY=c1ee95f60ee7b9b7c40b2bc771960bfe21ac3
 set -euo pipefail
