@@ -363,3 +363,6 @@ echo -e "❇️ OHP SSH                 :$sohr"
 echo -e "❇️ SSL / SSH Multiplexer   :$sosslh"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
 echo ""
+read -n 1 -s -r -p "Press any key to back on menu"
+
+menu
