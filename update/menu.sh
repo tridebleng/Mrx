@@ -34,7 +34,7 @@ echo -e " ❇️$bd Total RAM         ${color1} •${color3}$bd $tram MB"
 echo -e " ❇️$bd IP VPS            ${color1} •${color3}$bd $MYIP"
 echo -e " ❇️$bd DOMAIN VPS        ${color1} •${color3}$bd $DOMAIN"
 echo -e " ❇️$bd Waktu Aktif       ${color1} •${color3}$bd $up"
-echo -e " ❇️$bd Client Name       ${color1} •${color3}$bd MDX VPN"
+echo -e " ❇️$bd Client Name       ${color1} •${color3}$bd ARTA VPN"
 echo -e " ❇️$bd Expiry script     ${color1} •${color3}$bd LIFETIME"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
 echo -e "\E[41;1;39m                     ⇱ MENU  PANEL VPS ⇲                      \E[0m"
@@ -48,9 +48,11 @@ echo -e "
 [${green}06${NC}]${color1} •${color3}$bd PANEL Trojan (${color2}menu-trojan${color3})
 [${green}07${NC}]${color1} •${color3}$bd GANTI Port All Acount (${color2}menu-port${color3})
 [${green}08${NC}]${color1} •${color3}$bd CEK status layanan (${color2}running${color3})
-[${green}09${NC}]${color1} •${color3}$bd Menu Tools (${color2}tools${color3})
-[${green}10${NC}]${color1} •${color3}$bd webmin menu (${color2}webmin${color3})
+[${green}09${NC}]${color1} •${color3}$bd MENU Tools (${color2}tools${color3})
+[${green}10${NC}]${color1} •${color3}$bd WEB menu (${color2}webmin${color3})
 [${green}11${NC}]${color1} •${color3}$bd INFO script auto install (${color2}info${color3})
+[${green}12${NC}]${color1} •${color3}$bd Reboot vps (${color2}reboot${color3})
+[${green}13${NC}]${color1} •${color3}$bd Restart vps (${color2}restart${color3})
 
 [${green}00${NC}]${color1} •${color3}$bd Back to exit Menu \033[1;32m<\033[1;33m<\033[1;31m<\033[1;31m"
 echo ""
@@ -93,6 +95,12 @@ wbmn
 ;;
 11)
 info
+;;
+12)
+reboot
+;;
+13)
+restart
 ;;
 0 | 00)
 menu
