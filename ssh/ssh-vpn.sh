@@ -143,7 +143,6 @@ echo "figlet -f slant ARTA MAULANA | lolcat" >> .profile
 echo "sleep 0.5" >> .profile
 echo "clear" >> .profile
 echo "running " >> .profile
-echo "echo -e \" - Script Mod By Arta Vps\" | lolcat" >> .profile
 
 # install webserver
 apt -y install nginx php php-fpm php-cli php-mysql libxml-parser-perl
