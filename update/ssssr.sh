@@ -727,7 +727,7 @@ x="ok"
 while true $x != "ok"
 do
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[44;1;39m               ⇱ SHADOWSOCKS MENU ⇲               \E[0m"
+echo -e "\E[41;1;39m               ⇱ SHADOWSOCKS MENU ⇲               \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 menu_sts
 echo -e "
