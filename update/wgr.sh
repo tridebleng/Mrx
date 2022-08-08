@@ -14,7 +14,7 @@ chck_pid(){
 while true $x != "ok"
 do
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[44;1;39m                ⇱ WIREGUARD MENU ⇲                \E[0m"
+echo -e "\E[41;1;39m                ⇱ WIREGUARD MENU ⇲                \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 chck_pid
 echo -e "
