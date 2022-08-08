@@ -4,14 +4,14 @@ x="ok"
 cekray=`cat /root/log-install.txt | grep -ow "XRAYS" | sort | uniq`
 if [ "$cekray" = "XRAYS" ]; then
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[44;1;39m                  ⇱ XRAY MENU ⇲                   \E[0m"
+echo -e "\E[41;1;39m                  ⇱ XRAY MENU ⇲                   \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 
 rekk='XRAYS'
 kjj='xray'
 else
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[44;1;39m                  ⇱ V2RAY MENU ⇲                  \E[0m"
+echo -e "\E[41;1;39m                  ⇱ V2RAY MENU ⇲                  \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 
 rekk='V2RAY'
