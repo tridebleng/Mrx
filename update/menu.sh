@@ -25,16 +25,14 @@ CITY=$(curl -s ipinfo.io/city )
 up=$(uptime|awk '{ $1=$2=$(NF-6)=$(NF-5)=$(NF-4)=$(NF-3)=$(NF-2)=$(NF-1)=$NF=""; print }')
 tram=$( free -m | awk 'NR==2 {print $2}' )
 echo -e ""
-echo -e "${GREEN}
- 🔯 🔯 🔯 🔯 🔯 🔯 🔯 🔯 🔯 🔯 🔯 🔯 🔯 🔯 🔯 🔯 🔯 🔯 🔯 🔯
-     ${NC}Welcome To ${GREEN}ARTA VPS ${NC}Script installer ${GREEN}( Pro Edition )
-        ${NC} This Script Coded on Bash & Python Language
-       This Will Quick Setup VPN Server On Your Server
+echo -e "\033[0;32m╒═════════════════════════════════════════════════════════════╕
+      ${NC}Welcome To ${GREEN}ARTA VPS ${NC}Script installer ${GREEN}( Pro Edition )
+         ${NC} This Script Coded on Bash & Python Language
+        This Will Quick Setup VPN Server On Your Server
                    Owner : ${GREEN} M. ARTA MAULANA
-            ${NC}Copyright © By: ARTA VPS (2022-2033)
+             ${NC}Copyright © By: ARTA VPS (2022-2033)
 ${GREEN}
- =============(Script Auto instal: ARTA MAULANA)==============
-\033[1;32m$wh"
+ =============(Script Auto instal: ARTA MAULANA)=============="
 echo -e "\033[0;32m╒═════════════════════════════════════════════════════════════╕\033[0m${NC}"
 echo -e " \E[41;1;39m                     ⇱ INFORMASI VPS ⇲                       \E[0m"
 echo -e "\033[0;32m╘═════════════════════════════════════════════════════════════╛\033[0m${NC}"
