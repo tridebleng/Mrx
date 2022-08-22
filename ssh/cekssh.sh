@@ -25,7 +25,7 @@ if [ -e "/var/log/secure" ]; then
 fi
                 
 data=( `ps aux | grep -i dropbear | awk '{print $2}'`);
-echo "${CYAN}----------=[ Dropbear User Login ]=-----------";
+echo "----------=[ AREK AREK AKTIF ]=-----------";
 echo "ID  |  Username  |  IP Address";
 echo "----------------------------------------------";
 cat $LOG | grep -i dropbear | grep -i "Password auth succeeded" > /tmp/login-db.txt;
