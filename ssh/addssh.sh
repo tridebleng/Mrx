@@ -54,7 +54,7 @@ echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 expi=`date -d "$masaaktif days" +"%Y-%m-%d"`
 echo -e ""
-echo -e "Informasi SSH & OpenVPN"
+echo -e "${CYAN}Informasi SSH & OpenVPN ARTA VPS"
 echo -e "=============================="
 echo -e "IP/Host       : $IP"
 echo -e "Domain        : ${domain}"
@@ -77,7 +77,7 @@ echo -e "OVPN UDP      : http://$IP:89/udp.ovpn"
 echo -e "OVPN SSL      : http://$IP:89/ssl.ovpn"
 echo -e "BadVpn        : 7100-7200-7300"
 echo -e "Created       : $hariini"
-echo -e "Expired       : $expi"
+echo -e "Expired       : $expi${NC}"
 echo -e ""
 read -n 1 -s -r -p "Press any key to back on menu"
 
