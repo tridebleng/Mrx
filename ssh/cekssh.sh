@@ -7,7 +7,7 @@ NC='\033[0m'
 #ORANGE='\033[0;33m'
 BLUE='\033[0;34m'
 PURPLE='\033[0;35m'
-#CYAN='\033[0;36m'
+CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 off='\x1b[m'
 # ==========================================
@@ -25,7 +25,7 @@ if [ -e "/var/log/secure" ]; then
 fi
                 
 data=( `ps aux | grep -i dropbear | awk '{print $2}'`);
-echo "----------=[ Dropbear User Login ]=-----------";
+echo "----------=[ ${CYAN}Dropbear User Login${NC} ]=-----------";
 echo "ID  |  Username  |  IP Address";
 echo "----------------------------------------------";
 cat $LOG | grep -i dropbear | grep -i "Password auth succeeded" > /tmp/login-db.txt;
