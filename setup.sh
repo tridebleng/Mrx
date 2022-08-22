@@ -313,7 +313,7 @@ echo "   - Full Orders For Various Services" | tee -a log-install.txt
 echo "   - White Label" | tee -a log-install.txt
 echo "   - Installation Log --> /root/log-install.txt"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "   - Dev/Main                : Horas Marolop Amsal Siregar"  | tee -a log-install.txt
+echo "   - Dev/Main                : M ARTA MAULANA BIN TRI NOVIANTO"  | tee -a log-install.txt
 echo "   - Recode                  : Arta Vpn" | tee -a log-install.txt
 echo "   - Telegram                : https://t.me/Arta1"  | tee -a log-install.txt
 echo "   - Instagram               : ~"  | tee -a log-install.txt
