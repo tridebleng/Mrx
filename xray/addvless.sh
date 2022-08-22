@@ -64,3 +64,7 @@ echo -e "========================="
 echo -e "Link No TLS : ${xrayvless2}"
 echo -e "========================="
 echo -e "ENJOY OUR AUTO SCRIPT PREMIUM"
+echo -e""
+read -n 1 -s -r -p "Press any key to back on menu"
+
+menu
