@@ -1,254 +1,116 @@
 #!/bin/bash
-RED='\033[0;31m'
-NC='\033[0m'
-yl='\e[32;1m'
 GREEN='\033[0;32m'
-ORANGE='\033[0;33m'
-BLUE='\033[0;34m'
 PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
-LIGHT='\033[0;37m'
-# ==========================================
-# Getting
-dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
-biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
-#########################
-
-BURIQ () {
-    curl -sS https://raw.githubusercontent.com/tridebleng/izinvps/ipuk/ip > /root/tmp
-    data=( `cat /root/tmp | grep -E "^### " | awk '{print $2}'` )
-    for user in "${data[@]}"
-    do
-    exp=( `grep -E "^### $user" "/root/tmp" | awk '{print $3}'` )
-    d1=(`date -d "$exp" +%s`)
-    d2=(`date -d "$biji" +%s`)
-    exp2=$(( (d1 - d2) / 86400 ))
-    if [[ "$exp2" -le "0" ]]; then
-    echo $user > /etc/.$user.ini
-    else
-    rm -f /etc/.$user.ini > /dev/null 2>&1
-    fi
-    done
-    rm -f /root/tmp
-}
-
-MYIP=$(curl -sS ipv4.icanhazip.com)
-Name=$(curl -sS https://raw.githubusercontent.com/tridebleng/izinvps/ipuk/ip | grep $MYIP | awk '{print $2}')
-echo $Name > /usr/local/etc/.$Name.ini
-CekOne=$(cat /usr/local/etc/.$Name.ini)
-
-Bloman () {
-if [ -f "/etc/.$Name.ini" ]; then
-CekTwo=$(cat /etc/.$Name.ini)
-    if [ "$CekOne" = "$CekTwo" ]; then
-        res="Expired"
-    fi
-else
-res="Permission Accepted..."
-fi
-}
-
-PERMISSION () {
-    MYIP=$(curl -sS ipv4.icanhazip.com)
-    IZIN=$(curl -sS https://raw.githubusercontent.com/tridebleng/izinvps/ipuk/ip | awk '{print $4}' | grep $MYIP)
-    if [ "$MYIP" = "$IZIN" ]; then
-    Bloman
-    else
-    res="Permission Denied!"
-    fi
-    BURIQ
-}
-
-x="ok"
-
-cekray=`cat /root/log-install.txt | grep -ow "XRAY" | sort | uniq`
-if [ "$cekray" = "XRAY" ]; then
-rekk='XRAY'
-bec='xray'
-else
-rekk='V2RAY'
-bec='v2ray'
-fi
-
-PERMISSION
-
-if [ "$res" = "Expired" ]; then
-Exp="\e[36mExpired\033[0m"
-rm -f /home/needupdate > /dev/null 2>&1
-else
-Exp=$(curl -sS https://raw.githubusercontent.com/tridebleng/izinvps/ipuk/ip | grep $MYIP | awk '{print $3}')
-fi
+NC='\033[0m'
+yl='\e[32;1m'
+bl='\e[36;1m'
+gl='\e[32;1m'
+rd='\e[31;1m'
+mg='\e[0;95m'
+blu='\e[34m'
+op='\e[35m'
+or='\033[1;33m'
+bd='\e[1m'
+color1='\e[031;1m'
+color2='\e[34;1m'
+color3='\e[0m'
 clear
-echo -e "${CYAN}╒━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╕\033[0m${NC}"
-echo -e " \E[0;41;36m     ⇱ AutoScript By bahenol Project ⇲      \E[0m"
-echo -e "${CYAN}╘━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╛\033[0m${NC}"
-echo -e "   \e[36m[ SSH WebSocket : ${GREEN}ON${NC}\e[36m ]     [ XRAY : ${GREEN}ON${NC}\e[36m ] \033[0m"
-echo -e "\e[36m╒════════════════════════════════════════════╕\033[0m"
-echo -e " \E[0;41;36m                 INFO SERVER                \E[0m"
-echo -e "\e[36m╘════════════════════════════════════════════╛\033[0m"
-uphours=`uptime -p | awk '{print $2,$3}' | cut -d , -f1`
-upminutes=`uptime -p | awk '{print $4,$5}' | cut -d , -f1`
-uptimecek=`uptime -p | awk '{print $6,$7}' | cut -d , -f1`
-cekup=`uptime -p | grep -ow "day"`
-IPVPS=$(curl -s ipinfo.io/ip )
-serverV=$( curl -sS https://raw.githubusercontent.com/tridebleng/src/ipuk/versi)
 
-if [ "$cekup" = "day" ]; then
-echo    -e   "System Uptime   :  $uphours $upminutes $uptimecek"
-else
-echo -e   "System Uptime   :  $uphours $upminutes"
-fi
-echo -e "Use Core        :  $rekk"
-echo -e "Current Domain  :  $(cat /etc/$bec/domain)"
-echo -e "IP-VPS          :  $IPVPS"
-echo -e "\e[36m╒════════════════════════════════════════════╕\033[0m"
-echo -e " \E[0;41;36m                 PANEL MENU                 \E[0m"
-echo -e "\e[36m╘════════════════════════════════════════════╛\033[0m"
-echo -e " [\033[1;36m01\033[0m] Add User SSH   [\033[1;36m07\033[0m]  Add Vmess Account
- [\033[1;36m02\033[0m] SSH WS Enable  [\033[1;36m08\033[0m] Add Vless Account
- [\033[1;36m03\033[0m] Cek User SSH   [\033[1;36m09\033[0m] Add Trojan Account
- [\033[1;36m04\033[0m] Del User SSH   [\033[1;36m10\033[0m] Add Sdosok Account
- [\033[1;36m05\033[0m] Renew SSH      [\033[1;36m11\033[0m] Cek User Xray
- [\033[1;36m06\033[0m] Member         [\033[1;36m12\033[0m] Del User Xray
- ${GREEN}Script ARTA MAULANA\033[0m [\033[1;36m13\033[0m] Renew User Xray"
-echo -e  "\e[36m╒════════════════════════════════════════════╕\033[0m"
-echo -e " \E[0;41;36m               Settings MENU                \E[0m"
-echo -e "\e[36m╘════════════════════════════════════════════╛\033[0m
- [\033[1;36m14\033[0m] Setting Menu [${GREEN}Pro${NC}] [\033[1;36m21\033[0m] Cek Pkt bulanan
- [\033[1;36m15\033[0m] Gen SSL            [\033[1;36m21\033[0m] Cek Pkt \033[1;33mHarian${NC}
- [\033[1;36m16\033[0m] Cek Status ${GREEN}RUNNING${NC}
- [\033[1;36m17\033[0m] Reboot VPS ${GREEN}X-Ray${NC}
- [\033[1;36m18\033[0m] Restart VPS
- [\033[1;36m19\033[0m] ${RED}SEtting Pasword VPS${NC}
- [\033[1;36m20\033[0m] ${BLUE}SEtting Auto Reboot${NC}
-"
-if [[ $(cat /opt/.ver) = $serverV ]] > /dev/null 2>&1; then
-echo -ne
-else
-echo -e "[\033[1;32m999\033[0m] • \033[0;31mUpdate Available ! Go choice 69 to update\033[0m"
-echo ""
-fi
-echo -e "\033[1;37mPress [ Ctrl+C ] • To-Exit-Script\033[0m"
-echo ""
-#echo -e "\e[36m╘════════════════════════════════════════════════════╛\033[0m"
-echo -e "\e[36m╒═════════════════════════════════════════════╕\033[0m"
-if [[ $(cat /opt/.ver) = $serverV ]] > /dev/null 2>&1; then
-echo -e "Version       :\033[1;36m $(cat /opt/.ver) Latest Version\e[0m"
-echo -e "Client Name   : $Name"
-echo -e "Expiry script : $Exp"
-rm -f /home/needupdate > /dev/null 2>&1
-else
-rm /dev/.permiss > /dev/null 2>&1
-touch /home/needupdate > /dev/null 2>&1
-echo -e "\033[0;33mVersion : $(cat /opt/.ver) Update available to $serverV\e[0m"
-echo -e "\e[36m╒═════════════════════════════════════════════╕\033[0m"
-echo ""
-echo -e "[ \033[0;31mChangelog\033[0m ]"
-curl -sS https://raw.githubusercontent.com/tridebleng/src/ipuk/clgshow
-echo -e "
-"
-fi
-echo -e "\e[36m╘═════════════════════════════════════════════╛\033[0m"
-echo
-echo -ne "Select menu : "; read x
-if [[ $(cat /opt/.ver) = $serverV ]] > /dev/null 2>&1; then
-    if [[ $x -eq 1 ]]; then
-       usernew
-    elif [[ $x -eq 2 ]]; then
-       sshws
-    elif [[ $x -eq 3 ]]; then
-       cek
-    elif [[ $x -eq 4 ]]; then
-       hapus
-    elif [[ $x -eq 5 ]]; then
-       renew
-    elif [[ $x -eq 6 ]]; then
-       member
-    elif [[ $x -eq 7 ]]; then
-       add-ws
-    elif [[ $x -eq 8 ]]; then
-       add-vless
-    elif [[ $x -eq 9 ]]; then
-       add-tr
-    elif [[ $x -eq 10 ]]; then
-       add-ssws
-    elif [[ $x -eq 11 ]]; then
-       cek-user
-    elif [[ $x -eq 12 ]]; then
-       del-user
-    elif [[ $x -eq 13 ]]; then
-       renew-xray
-    elif [[ $x -eq 14 ]]; then
-       setting-menu
-    elif [[ $x -eq 15 ]]; then
-       crtv2ray
-    elif [[ $x -eq 16 ]]; then
-       running
-    elif [[ $x -eq 17 ]]; then
-       reboot
-    elif [[ $x -eq 18 ]]; then
-       restart
-    elif [[ $x -eq 19 ]]; then
-       passwd
-    elif [[ $x -eq 20 ]]; then
-       autoreboot
-    elif [[ $x -eq 21 ]]; then
-       vnstat
-    elif [[ $x -eq 22 ]]; then
-       vnstat -d
-    else
-       menu
-    fi
-else
-    if [[ $x -eq 69 ]]; then
-       wget -q -O /usr/bin/update-script "https://raw.githubusercontent.com/tridebleng/src/ipuk/setup.sh" && chmod +x /usr/bin/update-script
-       screen -S upds update-script
-       menu
-    elif [[ $x -eq 1 ]]; then
-       usernew
-    elif [[ $x -eq 2 ]]; then
-       sshws
-    elif [[ $x -eq 3 ]]; then
-       cek
-    elif [[ $x -eq 4 ]]; then
-       hapus
-    elif [[ $x -eq 5 ]]; then
-       renew
-    elif [[ $x -eq 6 ]]; then
-       member
-    elif [[ $x -eq 7 ]]; then
-       add-ws
-    elif [[ $x -eq 8 ]]; then
-       add-vless
-    elif [[ $x -eq 9 ]]; then
-       add-tr
-    elif [[ $x -eq 10 ]]; then
-       add-ssws
-    elif [[ $x -eq 11 ]]; then
-       cek-user
-    elif [[ $x -eq 12 ]]; then
-       del-user
-    elif [[ $x -eq 13 ]]; then
-       renew-xray
-    elif [[ $x -eq 14 ]]; then
-       setting-menu
-    elif [[ $x -eq 15 ]]; then
-       crtv2ray
-    elif [[ $x -eq 16 ]]; then
-       running
-    elif [[ $x -eq 17 ]]; then
-       reboot
-    elif [[ $x -eq 18 ]]; then
-       restart
-    elif [[ $x -eq 19 ]]; then
-       passwd
-    elif [[ $x -eq 20 ]]; then
-       autoreboot
-    elif [[ $x -eq 21 ]]; then
-       vnstat
-    elif [[ $x -eq 22 ]]; then
-       vnstat -d
-    else
-       menu
-    fi
-fi
+echo -e ""
+ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
+DOMAIN=$(cat /etc/xray/domain)
+MYIP=$(curl -s ipinfo.io/ip )
+CITY=$(curl -s ipinfo.io/city )
+up=$(uptime|awk '{ $1=$2=$(NF-6)=$(NF-5)=$(NF-4)=$(NF-3)=$(NF-2)=$(NF-1)=$NF=""; print }')
+tram=$( free -m | awk 'NR==2 {print $2}' )
+echo -e ""
+echo -e "\033[0;34m╒═════════════════════════════════════════════════════════════╕
+      ${NC}Welcome To ${GREEN}ARTA VPS ${NC}Script installer ${GREEN}( Pro Edition )
+         ${NC} This Script Coded on Bash & Python Language
+        This Will Quick Setup VPN Server On Your Server
+                   Owner : ${GREEN} M. ARTA MAULANA
+             ${NC}Copyright © By: ARTA VPS (2022-2033)
+${yl}
+ =============(Script Auto instal: ARTA MAULANA)=============="
+echo -e "\033[0;34m╒═════════════════════════════════════════════════════════════╕\033[0m${NC}"
+echo -e " \E[41;1;39m                     ⇱ INFORMASI VPS ⇲                       \E[0m"
+echo -e "\033[0;34m╘═════════════════════════════════════════════════════════════╛\033[0m${NC}"
+echo -e "  ✪$bd ISP Name          ${color1} •${color3}$bd $ISP"
+echo -e "  ✪$bd City              ${color1} •${color3}$bd $CITY"
+echo -e "  ✪$bd Total RAM         ${color1} •${yl}$bd $tram MB${NC}"
+echo -e "  ✪$bd IP VPS            ${color1} •${color3}$bd $MYIP"
+echo -e "  ✪$bd DOMAIN VPS        ${color1} •${CYAN}$bd $DOMAIN${NC}"
+echo -e "  ✪$bd Waktu Aktif       ${color1} •${or}$bd $up${NC}"
+echo -e "  ✪$bd Client Name       ${color1} •${color3}$bd \033[1;36mARTA MAULANA VPN${NC}"
+echo -e "  ✪$bd Expiry script     ${color1} •${color3}$bd \033[1;32mLIFETIME${NC}"
+echo -e "\033[0;34m╒═════════════════════════════════════════════════════════════╕\033[0m${NC}"
+echo -e " \E[41;1;39m                     ⇱ MENU PANEL VPS ⇲                      \E[0m"
+echo -e "\033[0;34m╘═════════════════════════════════════════════════════════════╛\033[0m${NC}"
+echo -e "[${GREEN}01${NC}]${color1} •${color3}$bd PANEL SSH & OpenVPN     [${GREEN}09${NC}]${color1} •${color3}$bd MENU SETTING [\033[1;32mPro${NC}]
+[${GREEN}02${NC}]${color1} •${color3}$bd PANEL Vmess & Vless     [${GREEN}10${NC}]${color1} •${color3}$bd WEB MENU
+[${GREEN}03${NC}]${color1} •${color3}$bd PANEL L2tp & PPTP       [${GREEN}11${NC}]${color1} •${color3}$bd INFO Script \033[1;36mARTA MAULANA${NC}
+[${GREEN}04${NC}]${color1} •${color3}$bd PANEL Wireguard         [${GREEN}12${NC}]${color1} •${color3}$bd Cek Bandwitch
+[${GREEN}05${NC}]${color1} •${color3}$bd PANEL SSR & Shdsok      [${GREEN}13${NC}]${color1} •${color3}$bd Cek Bandwitch \033[1;33mHarian${NC}
+[${GREEN}06${NC}]${color1} •${color3}$bd PANEL Tr GPR & GO       [${GREEN}14${NC}]${color1} •${color3}$bd Reboot VPS
+[${GREEN}07${NC}]${color1} •${color3}$bd GANTI Port All Acount   [${GREEN}15${NC}]${color1} •${color3}$bd Restart VPS
+[${GREEN}08${NC}]${color1} •${color3}$bd CEK Status \033[1;32mRUNNING${NC}      [${GREEN}00${NC}]${color1} •${color3}$bd \033[1;31mCEK AREK AKTIF${NC} \033[1;32m<\033[1;33m<\033[1;31m<\033[1;31m"
+echo -e "\033[0;34m╒═════════════════════════════════════════════════════════════╕\033[0m${NC}"
+echo -e " \E[41;1;39m                   ⇱ BIGETRON RED ALIENS ⇲                   \E[0m"
+echo -e "\033[0;34m╘═════════════════════════════════════════════════════════════╛\033[0m${NC}"
+echo -e  ""
+ read -p "  Select menu :  " menu
+echo -e   ""
+case $menu in
+1)
+ssh
+;;
+2)
+v2raay
+;;
+3)
+l2tp
+;;
+4)
+wgr
+;;
+5)
+ssssr
+;;
+6)
+trojaan
+;;
+7)
+changeport
+;;
+8)
+running
+;;
+9)
+menu-tools
+;;
+10)
+wbmn
+;;
+11)
+info
+;;
+12)
+vnstat
+;;
+13)
+vnstat -d
+;;
+14)
+reboot
+;;
+15)
+restart
+;;
+0 | 00)
+cekssh
+;;
+*)
+exit
+;;
+esac
