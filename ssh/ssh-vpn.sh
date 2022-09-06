@@ -460,6 +460,7 @@ wget -O running "https://raw.githubusercontent.com/tridebleng/Mrx/main/update/ru
 wget -O menu-tools "https://raw.githubusercontent.com/tridebleng/Mrx/main/update/menu-tools.sh"
 wget -O cloudflare-pointing "https://raw.githubusercontent.com/tridebleng/Mrx/main/update/cloudflare-pointing.sh"
 wget -O cloudflare-setting "https://raw.githubusercontent.com/tridebleng/Mrx/main/update/cloudflare-setting.sh"
+wget -O slowdns "https://raw.githubusercontent.com/tridebleng/Mrx/main/update/slowdns.sh"
 
 chmod +x portsshnontls
 chmod +x portsshws
@@ -523,6 +524,7 @@ chmod +x deltrgo
 chmod +x renewtrgo
 chmod +x cektrgo
 chmod +x running
+chmod +x slowdns
 
 echo "0 5 * * * root clearlog && reboot" >> /etc/crontab
 echo "0 0 * * * root xp" >> /etc/crontab
