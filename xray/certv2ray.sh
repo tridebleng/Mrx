@@ -1,9 +1,9 @@
 #!/bin/bash
 # ==========================================
 # Color
-red='\033[0;31m'
+RED='\033[0;31m'
 NC='\033[0m'
-green='\033[0;32m'
+GREEN='\033[0;32m'
 ORANGE='\033[0;33m'
 BLUE='\033[0;34m'
 PURPLE='\033[0;35m'
@@ -12,37 +12,18 @@ LIGHT='\033[0;37m'
 # ==========================================
 # Getting
 clear
-clear
-echo -e "${red}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
-echo -e "${green}               • RENEW DOMAIN SSL •               $NC"
-echo -e "${red}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
-echo -e ""
-echo -e "[ ${green}INFO${NC} ] Start " 
+echo start
 sleep 0.5
-systemctl stop nginx
-domain=$(cat /root/domain)
-Cek=$(lsof -i:80 | cut -d' ' -f1 | awk 'NR==2 {print $1}')
-if [[ ! -z "$Cek" ]]; then
-sleep 1
-echo -e "[ ${red}WARNING${NC} ] Detected port 80 used by $Cek " 
-systemctl stop $Cek
-sleep 2
-echo -e "[ ${green}INFO${NC} ] Processing to stop $Cek " 
-sleep 1
-fi
-echo -e "[ ${green}INFO${NC} ] Starting renew cert... " 
-sleep 2
-/root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
-/root/.acme.sh/acme.sh --issue -d $domain --force --standalone -k ec-256
-~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key --ecc
-echo -e "[ ${green}INFO${NC} ] Renew cert done... " 
-sleep 2
-echo -e "[ ${green}INFO${NC} ] Starting service $Cek " 
-sleep 2
-echo $domain > /etc/xray/domain
-systemctl restart $Cek
-systemctl restart nginx
-echo -e "[ ${green}INFO${NC} ] All finished... " 
-sleep 0.5
-echo ""
-echo -e "${red}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
+source /var/lib/geovpnstore/ipvps.conf
+domain=$(cat /etc/xray/domain)
+sudo lsof -t -i tcp:80 -s tcp:listen | sudo xargs kill
+cd /root/
+wget -O acme.sh https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh
+bash acme.sh --install
+rm acme.sh
+cd .acme.sh
+echo "starting...., Port 80 Akan di Hentikan Saat Proses install Cert"
+bash acme.sh --register-account -m patajunit@gmail.com
+bash acme.sh --issue --standalone -d $domain --force
+bash acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key
+restart
